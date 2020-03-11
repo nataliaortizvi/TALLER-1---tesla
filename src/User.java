@@ -13,7 +13,7 @@ public class User {
 	
 	public User(PApplet app) {
 		this.app = app;
-		cp5 = new ControlP5(app);
+		/*cp5 = new ControlP5(app);
 		PFont font = app.createFont ("arial", 20);
 		
 		cp5.addTextfield("usuario")
@@ -29,17 +29,23 @@ public class User {
 		.setColor(app.color(0))
 		.setColorBackground(app.color(255,255,255,30))
 		.setFont(font)
-		;
+		;*/
 		
 	}
 	
+	/*public void quitar() {
+		cp5.get(Textfield.class,"usuario")
+				.setPosition(-300,-300);
+		//contra = cp5.get(Textfield.class,"contra")
+		//		.setText();
+	}*/
 	
-	public void getInfo() {
+	/*public void getInfo() {
 		usuario = cp5.get(Textfield.class,"usuario").getText();
 		contra = cp5.get(Textfield.class,"contra").getText();
 		System.out.println(usuario);
 		System.out.println(contra);
-	}
+	}*/
 
 	public String getUsuario() {
 		return usuario;

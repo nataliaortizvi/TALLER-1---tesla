@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import processing.core.PApplet;
-//import processing.core.PFont;
+import processing.core.PFont;
 import processing.core.PImage;
 
 public class Main extends PApplet {
@@ -18,8 +18,8 @@ public class Main extends PApplet {
 	
 	int pantalla;
 	
-	//ControlP5 control;
-	Textfield username, contra;
+	ControlP5 control;
+	Textfield username, contra, email;
 	User userR;
 
 	
@@ -53,22 +53,30 @@ public class Main extends PApplet {
 		userR = new User(this);
 		usuario.add(new User(this));
 		
-		/*control = new ControlP5(this);
-		PFont font = createFont ("arial", 20);
+		control = new ControlP5(this);
+		PFont font = createFont ("arial", 25);
 		
-		username = control.addTextfield("")
+		username = control.addTextfield("username")
 		.setPosition(16,304)
 		.setSize(342,52)
-		.setColor(color(255,0,0))
+		.setSize(342,52)
+		.setColor(color(0))
+		.setColorBackground(color(255,255,255,30))
+		.setColorCaptionLabel(color(0))
 		.setFont(font)
 		;
 		
-		contra = control.addTextfield(" ")
+		contra = control.addTextfield("contra")
 		.setPosition(16,420)
 		.setSize(342,52)
-		.setColorBackground(355)
+		.setColor(color(0))
+		.setColorBackground(color(255,255,255,30))
+		.setColorCaptionLabel(color(0))
 		.setFont(font)
-		;*/
+		;
+		
+		
+		
 		
 		inicio = loadImage("imagenes/inicio.png");
 		inicioL = loadImage("imagenes/inicioL.png");
@@ -126,8 +134,8 @@ public class Main extends PApplet {
 				image(inicioR,0,0);
 			}
 			
-			//username.hide();
-			//contra.hide();
+			username.hide();
+			contra.hide();
 			
 			image(hora,0,0);
 			break;
@@ -140,8 +148,8 @@ public class Main extends PApplet {
 				image(loginN,0,0);
 			}
 			
-			//username.show();
-			//contra.show();
+			username.show();
+			contra.show();
 			
 			break;
 		case 2:
@@ -151,8 +159,8 @@ public class Main extends PApplet {
 				image(registroN,0,0);
 			}
 			
-			//username.hide();
-			//contra.hide();
+			username.hide();
+			contra.hide();
 			break;
 		case 3:
 			//pantalla de compra
@@ -206,9 +214,8 @@ public class Main extends PApplet {
 				image(user,0,728);
 			}
 			
-			
-			//username.hide();
-			//contra.hide();
+			username.hide();
+			contra.hide();
 			image(hora,0,0);
 			break;
 		case 4:
@@ -275,8 +282,6 @@ public class Main extends PApplet {
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
 				image(tcom,0,0);
 			}
-			
-			
 		
 			if(add == true) {
 				image(anadir,0,280);
@@ -284,8 +289,9 @@ public class Main extends PApplet {
 					image(cashh,0,280);
 				}
 				
-				
-				
+				if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+					image(cardd,0,280);
+				}
 
 				if(cash == true) {
 					image(cashh,0,280);
@@ -330,6 +336,29 @@ public class Main extends PApplet {
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
 				image(scom,0,0);
 			}
+			if(add == true) {
+				image(anadir,0,280);
+				if(mouseX > 32 && mouseX <126 && mouseY > 494 && mouseY <532) {
+					image(cashh,0,280);
+				}
+				
+				if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+					image(cardd,0,280);
+				}
+
+				if(cash == true) {
+					image(cashh,0,280);
+					card = false;
+				}
+				
+				if(card==true) {
+					image(cardd,0,280);
+					cash = false;
+				}
+				
+				
+			}
+			
 			
 			image(barra,0,728);
 			
@@ -359,6 +388,29 @@ public class Main extends PApplet {
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
 				image(ycom,0,0);
 			}
+			if(add == true) {
+				image(anadir,0,280);
+				if(mouseX > 32 && mouseX <126 && mouseY > 494 && mouseY <532) {
+					image(cashh,0,280);
+				}
+				
+				if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+					image(cardd,0,280);
+				}
+
+				if(cash == true) {
+					image(cashh,0,280);
+					card = false;
+				}
+				
+				if(card==true) {
+					image(cardd,0,280);
+					cash = false;
+				}
+				
+				
+			}
+			
 			
 			image(barra,0,728);
 			
@@ -388,6 +440,29 @@ public class Main extends PApplet {
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
 				image(xcom,0,0);
 			}
+			if(add == true) {
+				image(anadir,0,280);
+				if(mouseX > 32 && mouseX <126 && mouseY > 494 && mouseY <532) {
+					image(cashh,0,280);
+				}
+				
+				if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+					image(cardd,0,280);
+				}
+
+				if(cash == true) {
+					image(cashh,0,280);
+					card = false;
+				}
+				
+				if(card==true) {
+					image(cardd,0,280);
+					cash = false;
+				}
+				
+				
+			}
+			
 			
 			image(barra,0,728);
 			
@@ -430,7 +505,7 @@ public class Main extends PApplet {
 		case 1:
 			//login
 			if(mouseX > 36 && mouseX < 336 && mouseY > 737 && mouseY < 788) {
-				userR.getInfo();
+				//userR.getInfo();
 				pantalla = 3;
 			}
 			break;
@@ -569,10 +644,20 @@ public class Main extends PApplet {
 			//tesla s
 			//interaccion add y comparar
 			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
-				image(tadd,0,0);
+				add = true;
+				compare = false;
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
-				image(tcom,0,0);
+				compare = true;
+				add = false;
+			}
+			if(mouseX > 32 && mouseX < 127 && mouseY > 494 && mouseY <532) {
+				cash = true;
+				card = false;
+			}
+			if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+				card = true;
+				cash = false;
 			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
@@ -602,10 +687,20 @@ public class Main extends PApplet {
 			//tesla y
 			//interaccion add y comparar
 			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
-				image(tadd,0,0);
+				add = true;
+				compare = false;
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
-				image(tcom,0,0);
+				compare = true;
+				add = false;
+			}
+			if(mouseX > 32 && mouseX < 127 && mouseY > 494 && mouseY <532) {
+				cash = true;
+				card = false;
+			}
+			if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+				card = true;
+				cash = false;
 			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
@@ -635,10 +730,20 @@ public class Main extends PApplet {
 			//tesla x
 			//interaccion add y comparar
 			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
-				image(tadd,0,0);
+				add = true;
+				compare = false;
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
-				image(tcom,0,0);
+				compare = true;
+				add = false;
+			}
+			if(mouseX > 32 && mouseX < 127 && mouseY > 494 && mouseY <532) {
+				cash = true;
+				card = false;
+			}
+			if(mouseX > 32 && mouseX < 126 && mouseY > 561 && mouseY <600) {
+				card = true;
+				cash = false;
 			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
