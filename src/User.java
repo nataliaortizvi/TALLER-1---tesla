@@ -32,13 +32,7 @@ public class User {
 		;
 		
 	}
-	public void mostrar() {
-		cp5.get(Textfield.class,"usuario").show();
-	}
 	
-	public void borrar() {
-		cp5.get(Textfield.class,"contra").clear();
-	}
 	
 	public void getInfo() {
 		usuario = cp5.get(Textfield.class,"usuario").getText();
@@ -46,11 +40,6 @@ public class User {
 		System.out.println(usuario);
 		System.out.println(contra);
 	}
-	
-	
-	
-	
-	
 
 	public String getUsuario() {
 		return usuario;
