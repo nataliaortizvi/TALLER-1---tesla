@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import processing.core.PApplet;
-import processing.core.PFont;
+//import processing.core.PFont;
 import processing.core.PImage;
 
 public class Main extends PApplet {
@@ -17,8 +17,9 @@ public class Main extends PApplet {
 	
 	int pantalla;
 	
-	ControlP5 control, controlP;
+	//ControlP5 control;
 	Textfield username, contra;
+	User userR;
 
 	
 	
@@ -44,20 +45,16 @@ public class Main extends PApplet {
 		foto2 = false;
 		foto3 = false;
 		
-		usuario.add(new User("test","test","text"));
+		userR = new User(this);
+		usuario.add(new User(this));
 		
-		control = new ControlP5(this);
-		controlP = new ControlP5(this);
+		/*control = new ControlP5(this);
 		PFont font = createFont ("arial", 20);
 		
 		username = control.addTextfield("")
 		.setPosition(16,304)
 		.setSize(342,52)
-		.setColorBackground(355)
-		.setColorActive(355)
-		.setColorLabel(355)
-		.setColorCaptionLabel(355)
-		.setColorForeground(355)
+		.setColor(color(255,0,0))
 		.setFont(font)
 		;
 		
@@ -65,12 +62,8 @@ public class Main extends PApplet {
 		.setPosition(16,420)
 		.setSize(342,52)
 		.setColorBackground(355)
-		.setColorActive(355)
-		.setColorLabel(355)
-		.setColorCaptionLabel(355)
-		.setColorForeground(355)
 		.setFont(font)
-		;
+		;*/
 		
 		inicio = loadImage("imagenes/inicio.png");
 		inicioL = loadImage("imagenes/inicioL.png");
@@ -125,21 +118,25 @@ public class Main extends PApplet {
 				image(inicioR,0,0);
 			}
 			
-			username.hide();
-			contra.hide();
+			//username.hide();
+			//contra.hide();
 			
+			userR.borrar();
 			image(hora,0,0);
 			break;
 		case 1:
 			//pantalla de login (email y contra)
 			image(login,0,0);
+			
+			
 			if(mouseX > 36 && mouseX < 336 && mouseY > 737 && mouseY < 788) {
 				image(loginN,0,0);
 			}
 			
-			username.show();
-			contra.show();
+			//username.show();
+			//contra.show();
 			
+			userR.mostrar();
 			break;
 		case 2:
 			//pantalla de registro (nombre, email y contra)
@@ -148,8 +145,9 @@ public class Main extends PApplet {
 				image(registroN,0,0);
 			}
 			
-			username.hide();
-			contra.hide();
+			//username.hide();
+			//contra.hide();
+			userR.borrar();
 			break;
 		case 3:
 			//pantalla de compra
@@ -204,8 +202,9 @@ public class Main extends PApplet {
 			}
 			
 			
-			username.hide();
-			contra.hide();
+			//username.hide();
+			//contra.hide();
+			userR.borrar();
 			image(hora,0,0);
 			break;
 		case 4:
@@ -239,8 +238,7 @@ public class Main extends PApplet {
 				image(user,0,728);
 			}
 			
-			username.hide();
-			contra.hide();
+			
 			image(hora,0,0);
 			break;
 		case 5:
@@ -266,7 +264,8 @@ public class Main extends PApplet {
 			//carro tesla 3
 			image(tres,0,0);
 			
-			if(mouseX > 27 && mouseX < 690 && mouseY > 669 && mouseY < 709) {
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
 				image(tadd,0,0);
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
@@ -294,7 +293,8 @@ public class Main extends PApplet {
 			//carro tesla s
 			image(ese,0,0);
 			
-			if(mouseX > 27 && mouseX < 690 && mouseY > 669 && mouseY < 709) {
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
 				image(sadd,0,0);
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
@@ -322,7 +322,8 @@ public class Main extends PApplet {
 			//carro tesla y
 			image(ye,0,0);
 			
-			if(mouseX > 27 && mouseX < 690 && mouseY > 669 && mouseY < 709) {
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
 				image(yadd,0,0);
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
@@ -350,8 +351,8 @@ public class Main extends PApplet {
 			//carro tesla x
 			image(equis,0,0);
 			
-			
-			if(mouseX > 27 && mouseX < 690 && mouseY > 669 && mouseY < 709) {
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
 				image(xadd,0,0);
 			}
 			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
@@ -399,7 +400,11 @@ public class Main extends PApplet {
 		case 1:
 			//login
 			if(mouseX > 36 && mouseX < 336 && mouseY > 737 && mouseY < 788) {
+				userR.getInfo();
+				userR.borrar();
 				pantalla = 3;
+			}else {
+				userR.borrar();
 			}
 			break;
 		case 2:
@@ -433,7 +438,7 @@ public class Main extends PApplet {
 				}
 			}
 			
-			
+			//cambio pantalla por la barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
 				pantalla = 3;
 			}
@@ -490,6 +495,14 @@ public class Main extends PApplet {
 			
 			break;
 		case 6:
+			//tesla 3
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
+				image(tadd,0,0);
+			}
+			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
+				image(tcom,0,0);
+			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
 				pantalla = 3;
@@ -503,6 +516,14 @@ public class Main extends PApplet {
 			
 			break;
 		case 7:
+			//tesla s
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
+				image(tadd,0,0);
+			}
+			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
+				image(tcom,0,0);
+			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
 				pantalla = 3;
@@ -516,6 +537,14 @@ public class Main extends PApplet {
 			
 			break;
 		case 8:
+			//tesla y
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
+				image(tadd,0,0);
+			}
+			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
+				image(tcom,0,0);
+			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
 				pantalla = 3;
@@ -529,6 +558,14 @@ public class Main extends PApplet {
 			
 			break;
 		case 9:
+			//tesla x
+			//interaccion add y comparar
+			if(mouseX > 27 && mouseX < 155 && mouseY > 669 && mouseY < 709) {
+				image(tadd,0,0);
+			}
+			if(mouseX > 220 && mouseX < 350 && mouseY > 669 && mouseY < 709) {
+				image(tcom,0,0);
+			}
 			//cambio barra
 			if(mouseX > 57 && mouseY > 744 && mouseX < 85 && mouseY < 780) {
 				pantalla = 3;
